@@ -1,15 +1,15 @@
+// Nebula Shell — Entry Point
+
 import Quickshell
+import Quickshell.Hyprland
+import "./components"
 
 ShellRoot {
     id: root
 
-    // Theme singleton - accessed as Theme.colors throughout the shell
-    Theme { id: theme }
-
     // Matugen color loader - overrides theme colors when wallpaper changes
     Matugen {
         id: matugen
-        theme: theme
     }
 
     // Bar - one instance per screen
@@ -21,11 +21,19 @@ ShellRoot {
             property var modelData
             screen: modelData
 
-            // TODO: Phase 2 - Bar implementation
-            // components/Bar.qml will be imported here
+            anchors { top: true; left: true; right: true }
+            exclusiveZone: 36
 
-            implicitHeight: 36
+            WlrLayershell.namespace: "nebula:bar"
+            WlrLayershell.layer: WlrLayer.Top
+            WlrLayershell.keyboardFocus: WlrKeyboardFocus.None
+
             color: "transparent"
+
+            Bar {
+                anchors.fill: parent
+                screen: bar.screen
+            }
         }
     }
 }

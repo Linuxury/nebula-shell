@@ -1,80 +1,71 @@
+// Nebula Matugen — Dynamic color loader
+
 import QtQuick
 import Quickshell
+import Quickshell.Io
 
 QtObject {
     id: matugen
 
-    property var theme: null
-
     // Path to matugen-generated colors JSON
-    // Expected format:
-    // {
-    //   "primary": "#b4befe",
-    //   "on_primary": "#1e1e2e",
-    //   "secondary": "#cba6f7",
-    //   "tertiary": "#89b4fa",
-    //   "surface": "#1e1e2e",
-    //   "surface_dim": "#181825",
-    //   "on_surface": "#cdd6f4",
-    //   "on_surface_variant": "#a6adc8",
-    //   "outline": "#585b70",
-    //   "outline_variant": "#45475a",
-    //   "error": "#f38ba8"
-    // }
     readonly property string colorsPath: Quickshell.shellPath("matugen-colors.json")
 
-    // File watcher - reloads colors when matugen regenerates the file
-    FileWatcher {
-        id: colorWatcher
+    // File reader with watch for live color updates
+    FileView {
+        id: colorFile
         path: matugen.colorsPath
-        onFileChanged: matugen.loadColors()
-    }
-
-    // Load and apply colors on startup and when file changes
-    Component.onCompleted: loadColors()
-
-    function loadColors() {
-        const xhr = new XMLHttpRequest()
-        xhr.open("GET", "file://" + colorsPath)
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status === 200 || xhr.status === 0) {
-                    try {
-                        const colors = JSON.parse(xhr.responseText)
-                        applyColors(colors)
-                    } catch (e) {
-                        console.warn("[Nebula] Failed to parse matugen colors:", e)
-                    }
-                } else {
-                    console.info("[Nebula] No matugen colors found, using base theme")
-                }
-            }
+        watchChanges: true
+        onFileChanged: {
+            reload()
+            // Small delay to avoid race condition (100ms pattern from end-4)
+            reloadTimer.restart()
         }
-        xhr.send()
+        onLoaded: applyColors()
     }
 
-    function applyColors(colors) {
-        if (!theme) return
+    Timer {
+        id: reloadTimer
+        interval: 100
+        repeat: false
+        onTriggered: applyColors()
+    }
 
-        // Map matugen colors to theme properties
-        if (colors.primary)          theme.primary    = colors.primary
-        if (colors.secondary)        theme.secondary  = colors.secondary
-        if (colors.tertiary)         theme.tertiary   = colors.tertiary
-        if (colors.error)            theme.error      = colors.error
+    Component.onCompleted: {
+        if (colorFile.loaded) applyColors()
+    }
 
-        // Surfaces
-        if (colors.surface)          theme.base       = colors.surface
-        if (colors.surface_dim)      theme.mantle     = colors.surface_dim
-        if (colors.surface_bright)   theme.surface0   = colors.surface_bright
+    function applyColors() {
+        const text = colorFile.text()
+        if (!text || text.length === 0) {
+            console.info("[Nebula] No matugen colors found, using base theme")
+            return
+        }
 
-        // Text
-        if (colors.on_surface)       theme.text       = colors.on_surface
-        if (colors.on_surface_variant) theme.subtext0 = colors.on_surface_variant
+        try {
+            const colors = JSON.parse(text)
 
-        // Borders
-        if (colors.outline)          theme.border     = colors.outline
-        if (colors.outline_variant)  theme.borderDim  = colors.outline_variant
+            // Map matugen colors to Theme singleton properties
+            if (colors.primary)              Theme.primary    = colors.primary
+            if (colors.secondary)            Theme.secondary  = colors.secondary
+            if (colors.tertiary)             Theme.tertiary   = colors.tertiary
+            if (colors.error)                Theme.error      = colors.error
 
-        console.info("[Nebula] Matugen colors applied")
+            // Surfaces
+            if (colors.surface)              Theme.base       = colors.surface
+            if (colors.surface_dim)          Theme.mantle     = colors.surface_dim
+            if (colors.surface_bright)       Theme.surface0   = colors.surface_bright
+
+            // Text
+            if (colors.on_surface)           Theme.text       = colors.on_surface
+            if (colors.on_surface_variant)   Theme.subtext0   = colors.on_surface_variant
+
+            // Borders
+            if (colors.outline)              Theme.border     = colors.outline
+            if (colors.outline_variant)      Theme.borderDim  = colors.outline_variant
+
+            console.info("[Nebula] Matugen colors applied")
+        } catch (e) {
+            console.warn("[Nebula] Failed to parse matugen colors:", e)
+        }
     }
 }

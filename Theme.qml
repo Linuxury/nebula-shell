@@ -1,6 +1,9 @@
-import QtQuick
+pragma Singleton
 
-QtObject {
+import QtQuick
+import Quickshell
+
+Singleton {
     id: theme
 
     // === Core surfaces ===
