@@ -3,6 +3,7 @@
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
+import "../.."
 import Quickshell.Services.Pipewire
 
 Item {
@@ -13,7 +14,7 @@ Item {
 
     // Track default sink
     PwObjectTracker {
-        node: Pipewire.defaultAudioSink
+        objects: [Pipewire.defaultAudioSink]
     }
 
     readonly property var sink: Pipewire.defaultAudioSink

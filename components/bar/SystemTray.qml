@@ -33,14 +33,9 @@ RowLayout {
             }
 
             // Right-click context menu
-            QsMenuOpener {
-                id: menuOpener
-                menu: modelData.menu
-            }
-
             QsMenuAnchor {
                 id: menuAnchor
-                menu: menuOpener
+                menu: modelData.menu
                 anchor.window: QsWindow.window
                 anchor.item: parent
             }

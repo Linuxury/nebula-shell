@@ -2,6 +2,7 @@
 
 import QtQuick
 import Quickshell
+import "../.."
 
 Item {
     implicitWidth: 32

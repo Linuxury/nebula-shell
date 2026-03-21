@@ -3,6 +3,7 @@
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
+import "../.."
 import Quickshell.Hyprland
 import Quickshell.Widgets
 

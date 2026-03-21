@@ -4,7 +4,7 @@ import QtQuick
 import Quickshell
 import Quickshell.Io
 
-QtObject {
+Scope {
     id: matugen
 
     // Path to matugen-generated colors JSON

@@ -2,6 +2,7 @@
 
 import QtQuick
 import Quickshell
+import "../.."
 
 Item {
     id: clockRoot

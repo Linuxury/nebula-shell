@@ -2,6 +2,7 @@
 
 import Quickshell
 import Quickshell.Hyprland
+import Quickshell.Wayland
 import "./components"
 
 ShellRoot {
@@ -46,7 +47,7 @@ ShellRoot {
             property var modelData
             screen: modelData
 
-            anchors { bottom: true; horizontalCenter: true }
+            anchors { bottom: true }
             exclusiveZone: 72
 
             WlrLayershell.namespace: "nebula:dock"
@@ -56,8 +57,7 @@ ShellRoot {
             color: "transparent"
 
             Dock {
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.bottom: parent.bottom
+                anchors.centerIn: parent
                 anchors.bottomMargin: 8
                 screen: dock.screen
             }
