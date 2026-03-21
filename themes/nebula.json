@@ -1,0 +1,17 @@
+{
+  "name": "Nebula",
+  "description": "Deep purple, ethereal glow — Catppuccin Mocha base",
+  "colors": {
+    "primary": "#b4befe",
+    "secondary": "#cba6f7",
+    "tertiary": "#89b4fa",
+    "error": "#f38ba8",
+    "surface": "#1e1e2e",
+    "surface_dim": "#181825",
+    "surface_bright": "#313244",
+    "on_surface": "#cdd6f4",
+    "on_surface_variant": "#a6adc8",
+    "outline": "#585b70",
+    "outline_variant": "#45475a"
+  }
+}

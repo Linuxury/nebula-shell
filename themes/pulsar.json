@@ -1,0 +1,17 @@
+{
+  "name": "Pulsar",
+  "description": "High contrast, electric blue — Tokyo Night base",
+  "colors": {
+    "primary": "#7aa2f7",
+    "secondary": "#bb9af7",
+    "tertiary": "#7dcfff",
+    "error": "#f7768e",
+    "surface": "#1a1b26",
+    "surface_dim": "#16161e",
+    "surface_bright": "#24283b",
+    "on_surface": "#c0caf5",
+    "on_surface_variant": "#a9b1d6",
+    "outline": "#565f89",
+    "outline_variant": "#414868"
+  }
+}

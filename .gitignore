@@ -1,0 +1,21 @@
+# Nix
+result
+.direnv/
+
+# Editor
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Quickshell cache
+*.qmlc
+*.jsc
+
+# Matugen generated
+matugen-colors.json

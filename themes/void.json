@@ -1,0 +1,17 @@
+{
+  "name": "Void",
+  "description": "Ultra-minimal, near-monochrome — Gruvbox Dark base",
+  "colors": {
+    "primary": "#83a598",
+    "secondary": "#d3869b",
+    "tertiary": "#8ec07c",
+    "error": "#fb4934",
+    "surface": "#282828",
+    "surface_dim": "#1d2021",
+    "surface_bright": "#3c3836",
+    "on_surface": "#ebdbb2",
+    "on_surface_variant": "#a89984",
+    "outline": "#665c54",
+    "outline_variant": "#504945"
+  }
+}

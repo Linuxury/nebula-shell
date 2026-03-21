@@ -1,0 +1,17 @@
+{
+  "name": "Supernova",
+  "description": "Warm amber bursts on dark — One Dark base",
+  "colors": {
+    "primary": "#61afef",
+    "secondary": "#c678dd",
+    "tertiary": "#56b6c2",
+    "error": "#e06c75",
+    "surface": "#282c34",
+    "surface_dim": "#21252b",
+    "surface_bright": "#353b45",
+    "on_surface": "#abb2bf",
+    "on_surface_variant": "#9da5b4",
+    "outline": "#5c6370",
+    "outline_variant": "#4b5263"
+  }
+}
