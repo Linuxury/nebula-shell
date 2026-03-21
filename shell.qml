@@ -36,4 +36,31 @@ ShellRoot {
             }
         }
     }
+
+    // Dock - one instance per screen (bottom)
+    Variants {
+        model: Quickshell.screens
+
+        PanelWindow {
+            id: dock
+            property var modelData
+            screen: modelData
+
+            anchors { bottom: true; horizontalCenter: true }
+            exclusiveZone: 72
+
+            WlrLayershell.namespace: "nebula:dock"
+            WlrLayershell.layer: WlrLayer.Bottom
+            WlrLayershell.keyboardFocus: WlrKeyboardFocus.None
+
+            color: "transparent"
+
+            Dock {
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: 8
+                screen: dock.screen
+            }
+        }
+    }
 }

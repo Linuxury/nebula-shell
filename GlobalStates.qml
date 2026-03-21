@@ -16,4 +16,7 @@ Singleton {
 
     // Notifications
     property bool doNotDisturb: false
+
+    // Dock (bottom bar) — always visible by default
+    property bool dockVisible: true
 }
