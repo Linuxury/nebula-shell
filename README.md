@@ -4,7 +4,7 @@
 
 A cosmic Quickshell desktop shell for Hyprland, inspired by the beauty of deep-space nebulae. Colors shift with your wallpaper through matugen — your wallpaper is the star, the UI is the illuminated cloud.
 
-> **Status:** Phase 1 — Skeleton. Active development.
+> **Status:** Phase 2 — Bar. Active development.
 
 ## Features
 
@@ -18,23 +18,29 @@ A cosmic Quickshell desktop shell for Hyprland, inspired by the beauty of deep-s
 
 ```
 nebula-shell/
-├── shell.qml           # Entry point
-├── Theme.qml           # Base color definitions
-├── Matugen.qml         # Dynamic color loader
+├── shell.qml              # Entry point (PanelWindow per screen)
+├── Theme.qml              # Base color definitions (Singleton)
+├── Matugen.qml            # Dynamic color loader (FileView + watchChanges)
+├── GlobalStates.qml       # UI state singleton (sidebar, launcher, DND)
 ├── components/
-│   ├── Bar.qml         # Nebula Core (Phase 2)
-│   ├── Dock.qml        # Accretion Disk (Phase 3)
-│   ├── Launcher.qml    # Stellar Nursery (Phase 4)
-│   ├── Sidebar.qml     # Event Horizon Panel (Phase 5)
-│   ├── Notifications.qml # Solar Flares (Phase 4)
-│   ├── OSD.qml         # Pulsar Pills (Phase 4)
-│   └── LockScreen.qml  # Event Horizon (Phase 7)
+│   ├── Bar.qml            # Nebula Core — left/center/right bar layout
+│   └── bar/
+│       ├── BarButton.qml      # Generic hoverable button
+│       ├── LauncherButton.qml # Opens launcher (   icon)
+│       ├── Workspaces.qml     # 3 persistent workspace buttons
+│       ├── Clock.qml          # Clock + calendar tooltip
+│       ├── Audio.qml          # Pipewire volume + mute
+│       ├── SystemTray.qml     # System tray icons
+│       └── Media.qml          # MPRIS player controls (conditional)
+├── scripts/
+│   └── powermenu.sh       # Power menu (Lock/Logout/Suspend/Reboot/Shutdown)
 ├── themes/
-│   ├── nebula.json     # Catppuccin Mocha base
-│   ├── pulsar.json     # Tokyo Night
-│   ├── supernova.json  # One Dark
-│   └── void.json       # Gruvbox Dark
-└── flake.nix           # Nix flake for packaging
+│   ├── nebula.json        # Catppuccin Mocha base
+│   ├── pulsar.json        # Tokyo Night (Phase 3)
+│   ├── supernova.json     # One Dark (Phase 3)
+│   └── void.json          # Gruvbox Dark (Phase 3)
+├── flake.nix              # Nix flake for packaging
+└── services/              # Phase 2+ services (system integrations)
 ```
 
 ## Installation
@@ -90,8 +96,8 @@ qs ipc call globalIPC ...   # IPC commands (future)
 
 ## Roadmap
 
-- [x] Phase 1 — Skeleton: shell.qml, Theme.qml, services, matugen pipeline
-- [ ] Phase 2 — Bar: left/center/right widgets
+- [x] Phase 1 — Skeleton: shell.qml, Theme.qml, GlobalStates, Matugen pipeline
+- [x] Phase 2 — Bar: left/center/right widgets (workspaces, clock, audio, tray, media)
 - [ ] Phase 3 — Dock: pinned + running apps
 - [ ] Phase 4 — Launcher + Notifications + OSD
 - [ ] Phase 5 — Sidebar / Control Center
