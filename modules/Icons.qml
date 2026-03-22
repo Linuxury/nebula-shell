@@ -8,13 +8,13 @@ import Quickshell
 Singleton {
     id: iconsModule
 
-    // Material Symbols Two Tone font
+    // Material Symbols Outlined font (Two Tone not available via CDN)
     readonly property FontLoader symbols: FontLoader {
-        source: "https://fonts.gstatic.com/s/materialsymbolstwotone/v176/hESh8WRHkZ6C4bFz4zLoPiqgTdMQCYGsr6FYEtdk.woff2"
+        source: "https://fonts.gstatic.com/s/materialsymbolsoutlined/v175/kJEhBvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oFsI.woff2"
     }
 
     // Font family name (must match the font file)
-    readonly property string fontFamily: "Material Symbols Two Tone"
+    readonly property string fontFamily: "Material Symbols Outlined"
 
     // Icon name to unicode mapping
     readonly property var iconMap: ({

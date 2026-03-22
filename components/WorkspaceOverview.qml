@@ -129,17 +129,22 @@ Item {
         readonly property string windowTitle: {
             if (!workspace) return ""
             const toplevels = workspace.toplevels
-            if (!toplevels || toplevels.length === 0) return ""
+            if (!toplevels) return ""
+            const count = toplevels.length || 0
+            if (count === 0) return ""
             // Get the focused window title
-            for (let i = 0; i < toplevels.length; i++) {
-                if (toplevels[i].activated) return toplevels[i].title || ""
+            for (let i = 0; i < count; i++) {
+                const t = toplevels[i]
+                if (t && t.activated && t.title) return t.title
             }
-            return toplevels[0].title || ""
+            const first = toplevels[0]
+            return (first && first.title) ? first.title : ""
         }
 
         readonly property int windowCount: {
             if (!workspace) return 0
-            return workspace.toplevels ? workspace.toplevels.length : 0
+            const toplevels = workspace.toplevels
+            return toplevels ? (toplevels.length || 0) : 0
         }
 
         radius: Theme.radius
