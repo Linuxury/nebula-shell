@@ -183,4 +183,27 @@ ShellRoot {
             }
         }
     }
+
+    // Screenshot tool - centered overlay
+    Variants {
+        model: Quickshell.screens
+
+        PanelWindow {
+            id: screenshotPanel
+            property var modelData
+            screen: modelData
+
+            anchors { top: true; left: true; right: true; bottom: true }
+            margins { top: 200; left: 200; right: 200; bottom: 200 }
+            implicitWidth: 400
+            implicitHeight: 200
+
+            color: "transparent"
+
+            Screenshot {
+                anchors.fill: parent
+                screen: screenshotPanel.screen
+            }
+        }
+    }
 }

@@ -20,6 +20,15 @@ Item {
     implicitWidth: 320
     implicitHeight: sidebarContent.implicitHeight + 24
 
+    // Slide animation
+    x: visible ? 0 : 320
+    Behavior on x {
+        NumberAnimation {
+            duration: 200
+            easing.type: Easing.OutCubic
+        }
+    }
+
     // Focus grab to close on click outside
     HyprlandFocusGrab {
         id: sidebarFocus

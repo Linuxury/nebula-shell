@@ -25,4 +25,7 @@ Singleton {
 
     // Lock screen
     property bool lockScreenOpen: false
+
+    // Screenshot tool
+    property bool screenshotOpen: false
 }

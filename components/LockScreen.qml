@@ -19,6 +19,15 @@ Item {
     // Full screen overlay
     anchors.fill: parent
 
+    // Fade animation
+    opacity: visible ? 1 : 0
+    Behavior on opacity {
+        NumberAnimation {
+            duration: 300
+            easing.type: Easing.OutCubic
+        }
+    }
+
     // Focus the password input
     onVisibleChanged: {
         if (visible) {

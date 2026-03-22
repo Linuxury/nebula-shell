@@ -18,6 +18,15 @@ Item {
     implicitWidth: 700
     implicitHeight: 400
 
+    // Fade animation
+    opacity: visible ? 1 : 0
+    Behavior on opacity {
+        NumberAnimation {
+            duration: 200
+            easing.type: Easing.OutCubic
+        }
+    }
+
     // Close on escape
     Keys.onEscapePressed: GlobalStates.overviewOpen = false
 

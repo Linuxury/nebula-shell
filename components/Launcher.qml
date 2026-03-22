@@ -26,6 +26,15 @@ FloatingWindow {
 
     color: Theme.mantle
 
+    // Fade animation
+    opacity: visible ? 1 : 0
+    Behavior on opacity {
+        NumberAnimation {
+            duration: 150
+            easing.type: Easing.OutCubic
+        }
+    }
+
     // Search bar
     Rectangle {
         id: searchBar
