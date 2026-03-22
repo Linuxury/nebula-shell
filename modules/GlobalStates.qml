@@ -22,4 +22,7 @@ Singleton {
 
     // Workspace overview
     property bool overviewOpen: false
+
+    // Lock screen
+    property bool lockScreenOpen: false
 }

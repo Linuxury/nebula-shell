@@ -159,4 +159,28 @@ ShellRoot {
             }
         }
     }
+
+    // Lock Screen - full screen overlay
+    Variants {
+        model: Quickshell.screens
+
+        PanelWindow {
+            id: lockScreenPanel
+            property var modelData
+            screen: modelData
+
+            anchors { top: true; left: true; right: true; bottom: true }
+
+            color: "transparent"
+
+            WlrLayershell.namespace: "nebula:lockscreen"
+            WlrLayershell.layer: WlrLayer.Overlay
+            WlrLayershell.keyboardFocus: WlrKeyboardFocus.Exclusive
+
+            LockScreen {
+                anchors.fill: parent
+                screen: lockScreenPanel.screen
+            }
+        }
+    }
 }
