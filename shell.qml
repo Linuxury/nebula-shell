@@ -114,4 +114,26 @@ ShellRoot {
     Launcher {
         id: launcherWindow
     }
+
+    // Sidebar - control center (right side)
+    Variants {
+        model: Quickshell.screens
+
+        PanelWindow {
+            id: sidebarPanel
+            property var modelData
+            screen: modelData
+
+            anchors { top: true; right: true; bottom: true }
+            margins { top: 48; right: 12; bottom: 12 }
+            implicitWidth: 320
+
+            color: "transparent"
+
+            Sidebar {
+                anchors.fill: parent
+                screen: sidebarPanel.screen
+            }
+        }
+    }
 }

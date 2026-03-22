@@ -4,7 +4,7 @@
 
 A cosmic Quickshell desktop shell for Hyprland, inspired by the beauty of deep-space nebulae. Colors shift with your wallpaper through matugen — your wallpaper is the star, the UI is the illuminated cloud.
 
-> **Status:** Phase 4 — Launcher + Notifications + OSD. Active development.
+> **Status:** Phase 5 — Sidebar. Active development.
 
 ## Features
 
@@ -103,7 +103,7 @@ qs ipc call globalIPC ...   # IPC commands (future)
 - [x] Phase 2 — Bar: left/center/right widgets (workspaces, clock, audio, tray, media)
 - [x] Phase 3 — Dock: pinned + running apps, running indicator, hover tooltips
 - [x] Phase 4 — Launcher + Notifications + OSD
-- [ ] Phase 5 — Sidebar / Control Center
+- [x] Phase 5 — Sidebar / Control Center
 - [ ] Phase 6 — Workspace Overview
 - [ ] Phase 7 — Lock Screen + Login Manager
 - [ ] Phase 8 — Screenshot tool, polish, multi-monitor
