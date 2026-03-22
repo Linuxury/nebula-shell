@@ -16,32 +16,45 @@ A cosmic Quickshell desktop shell for Hyprland, inspired by the beauty of deep-s
 
 ```
 nebula-shell/
-├── shell.qml              # Entry point (PanelWindow per screen)
-├── Theme.qml              # Base color definitions (Singleton)
-├── Matugen.qml            # Dynamic color loader (FileView + watchChanges)
-├── GlobalStates.qml       # UI state singleton (sidebar, launcher, DND, dock)
+├── shell.qml                    # Entry point (PanelWindow per screen)
+├── Matugen.qml                  # Dynamic color loader (FileView + watchChanges)
+├── modules/
+│   ├── Theme.qml                # Base color definitions (Singleton)
+│   ├── GlobalStates.qml         # UI state singleton (sidebar, launcher, DND, dock, lock)
+│   └── Icons.qml                # Material Symbols font loader + icon map
 ├── components/
-│   ├── Bar.qml            # Nebula Core — left/center/right bar layout
-│   ├── Dock.qml           # Accretion Disk — pinned + running apps (bottom)
+│   ├── Bar.qml                  # Nebula Core — left/center/right bar layout
+│   ├── Dock.qml                 # Accretion Disk — pinned + running apps (bottom)
+│   ├── Launcher.qml             # Stellar Nursery — app search popup
+│   ├── Notifications.qml        # Solar Flares — toast notifications
+│   ├── OSD.qml                  # Pulsar Pills — volume/brightness overlay
+│   ├── Sidebar.qml              # Event Horizon Panel — control center
+│   ├── WorkspaceOverview.qml    # 2×5 grid of workspaces
+│   ├── LockScreen.qml           # Event Horizon — lock screen
+│   ├── Screenshot.qml           # Screenshot tool (full, selection, window)
 │   ├── bar/
-│   │   ├── BarButton.qml      # Generic hoverable button
-│   │   ├── LauncherButton.qml # Opens launcher (   icon)
-│   │   ├── Workspaces.qml     # 3 persistent workspace buttons
-│   │   ├── Clock.qml          # Clock + calendar tooltip
-│   │   ├── Audio.qml          # Pipewire volume + mute
-│   │   ├── SystemTray.qml     # System tray icons
-│   │   └── Media.qml          # MPRIS player controls (conditional)
+│   │   ├── BarButton.qml        # Generic hoverable button
+│   │   ├── LauncherButton.qml   # Opens launcher
+│   │   ├── Workspaces.qml       # 3 persistent workspace buttons
+│   │   ├── Clock.qml            # Clock + calendar tooltip
+│   │   ├── Audio.qml            # Pipewire volume + mute
+│   │   ├── SystemTray.qml       # System tray icons
+│   │   └── Media.qml            # MPRIS player controls (conditional)
 │   └── dock/
-│       └── DockApp.qml        # Individual dock app icon + running indicator
+│       └── DockApp.qml          # Individual dock app icon + running indicator
+├── assets/
+│   └── fonts/
+│       └── MaterialSymbolsOutlined.woff2
 ├── scripts/
-│   └── powermenu.sh       # Power menu (Lock/Logout/Suspend/Reboot/Shutdown)
+│   └── powermenu.sh             # Power menu (Lock/Logout/Suspend/Reboot/Shutdown)
+├── services/
+│   └── Services.qml             # System integrations (placeholder)
 ├── themes/
-│   ├── nebula.json        # Catppuccin Mocha base
-│   ├── pulsar.json        # Tokyo Night (Phase 3)
-│   ├── supernova.json     # One Dark (Phase 3)
-│   └── void.json          # Gruvbox Dark (Phase 3)
-├── flake.nix              # Nix flake for packaging
-└── services/              # Phase 2+ services (system integrations)
+│   ├── nebula.json              # Catppuccin Mocha base
+│   ├── pulsar.json              # Tokyo Night
+│   ├── supernova.json           # One Dark
+│   └── void.json                # Gruvbox Dark
+└── flake.nix                    # Nix flake for packaging
 ```
 
 ## Installation
