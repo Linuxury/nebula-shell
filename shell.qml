@@ -3,6 +3,7 @@
 import Quickshell
 import Quickshell.Hyprland
 import Quickshell.Wayland
+import qs.modules
 import "./components"
 
 ShellRoot {
@@ -146,6 +147,8 @@ ShellRoot {
             property var modelData
             screen: modelData
 
+            visible: GlobalStates.overviewOpen
+
             anchors { top: true; left: true; right: true; bottom: true }
             margins { top: 100; left: 100; right: 100; bottom: 100 }
             implicitWidth: 700
@@ -168,6 +171,8 @@ ShellRoot {
             id: lockScreenPanel
             property var modelData
             screen: modelData
+
+            visible: GlobalStates.lockScreenOpen
 
             anchors { top: true; left: true; right: true; bottom: true }
 
@@ -192,6 +197,8 @@ ShellRoot {
             id: screenshotPanel
             property var modelData
             screen: modelData
+
+            visible: GlobalStates.screenshotOpen
 
             anchors { top: true; left: true; right: true; bottom: true }
             margins { top: 200; left: 200; right: 200; bottom: 200 }
