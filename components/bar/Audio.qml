@@ -22,10 +22,10 @@ Item {
     readonly property bool muted: sink ? sink.audio.muted : true
 
     readonly property string volumeIcon: {
-        if (muted) return ""
-        if (volume > 0.66) return ""
-        if (volume > 0.33) return ""
-        return ""
+        if (muted) return Icons.getIcon("volume_mute")
+        if (volume > 0.66) return Icons.getIcon("volume_up")
+        if (volume > 0.33) return Icons.getIcon("volume_down")
+        return Icons.getIcon("volume_off")
     }
 
     RowLayout {
@@ -37,7 +37,8 @@ Item {
         Text {
             text: audioRoot.volumeIcon
             color: audioRoot.muted ? Theme.error : Theme.fg
-            font.pixelSize: 14
+            font.family: Icons.fontFamily
+            font.pixelSize: 16
 
             MouseArea {
                 anchors.fill: parent

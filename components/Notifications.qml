@@ -134,9 +134,10 @@ Item {
 
             // Dismiss button
             Text {
-                text: ""
+                text: Icons.getIcon("close")
                 color: Theme.fgDim
-                font.pixelSize: 14
+                font.family: Icons.fontFamily
+                font.pixelSize: 16
 
                 MouseArea {
                     anchors.fill: parent

@@ -67,14 +67,15 @@ Item {
             // Volume icon
             Text {
                 text: {
-                    if (muted) return ""
-                    if (volume > 0.66) return ""
-                    if (volume > 0.33) return ""
-                    if (volume > 0) return ""
-                    return ""
+                    if (muted) return Icons.getIcon("volume_mute")
+                    if (volume > 0.66) return Icons.getIcon("volume_up")
+                    if (volume > 0.33) return Icons.getIcon("volume_down")
+                    if (volume > 0) return Icons.getIcon("volume_off")
+                    return Icons.getIcon("volume_off")
                 }
                 color: muted ? Theme.error : Theme.fg
-                font.pixelSize: 20
+                font.family: Icons.fontFamily
+                font.pixelSize: 22
             }
 
             ColumnLayout {

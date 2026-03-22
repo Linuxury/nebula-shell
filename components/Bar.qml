@@ -105,13 +105,13 @@ Item {
 
             // Sidebar toggle button
             BarButton {
-                icon: ""
+                icon: Icons.getIcon("tune")
                 onClicked: GlobalStates.sidebarOpen = !GlobalStates.sidebarOpen
             }
 
             // Power button
             BarButton {
-                icon: ""
+                icon: Icons.getIcon("power_settings_new")
                 onClicked: powermenuProc.running = true
             }
         }

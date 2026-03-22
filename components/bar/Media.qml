@@ -32,9 +32,10 @@ Item {
 
         // Previous
         Text {
-            text: ""
+            text: Icons.getIcon("skip_previous")
             color: Theme.fgDim
-            font.pixelSize: 12
+            font.family: Icons.fontFamily
+            font.pixelSize: 14
 
             MouseArea {
                 anchors.fill: parent
@@ -46,9 +47,12 @@ Item {
 
         // Play/Pause
         Text {
-            text: mediaRoot.activePlayer && mediaRoot.activePlayer.isPlaying ? " " : " "
+            text: mediaRoot.activePlayer && mediaRoot.activePlayer.isPlaying
+                ? Icons.getIcon("pause")
+                : Icons.getIcon("play_arrow")
             color: Theme.fg
-            font.pixelSize: 14
+            font.family: Icons.fontFamily
+            font.pixelSize: 18
 
             MouseArea {
                 anchors.fill: parent
@@ -60,9 +64,10 @@ Item {
 
         // Next
         Text {
-            text: ""
+            text: Icons.getIcon("skip_next")
             color: Theme.fgDim
-            font.pixelSize: 12
+            font.family: Icons.fontFamily
+            font.pixelSize: 14
 
             MouseArea {
                 anchors.fill: parent

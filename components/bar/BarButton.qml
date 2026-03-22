@@ -21,7 +21,8 @@ Item {
             anchors.centerIn: parent
             text: icon
             color: Theme.fg
-            font.pixelSize: 16
+            font.family: Icons.fontFamily
+            font.pixelSize: 18
         }
 
         MouseArea {

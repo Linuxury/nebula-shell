@@ -2,8 +2,9 @@
 
 import QtQuick
 import Quickshell
+import qs.modules
 
 BarButton {
-    icon: ""
+    icon: Icons.getIcon("apps")
     onClicked: GlobalStates.launcherOpen = !GlobalStates.launcherOpen
 }
