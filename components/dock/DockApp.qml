@@ -2,7 +2,7 @@
 
 import QtQuick
 import Quickshell
-import "../.."
+import qs.modules
 import Quickshell.Widgets
 
 Item {
