@@ -4,8 +4,6 @@
 
 A cosmic Quickshell desktop shell for Hyprland, inspired by the beauty of deep-space nebulae. Colors shift with your wallpaper through matugen — your wallpaper is the star, the UI is the illuminated cloud.
 
-> **Status:** Phase 8 — Polish. Active development.
-
 ## Features
 
 - **Dynamic theming** — Matugen integration pulls colors from your wallpaper
@@ -96,17 +94,6 @@ qs ipc call globalIPC ...   # IPC commands (future)
 | Event horizon | Lock screen |
 | Pulsar | System tray / update badge |
 | Dark matter | Transparent/blur regions |
-
-## Roadmap
-
-- [x] Phase 1 — Skeleton: shell.qml, Theme.qml, GlobalStates, Matugen pipeline
-- [x] Phase 2 — Bar: left/center/right widgets (workspaces, clock, audio, tray, media)
-- [x] Phase 3 — Dock: pinned + running apps, running indicator, hover tooltips
-- [x] Phase 4 — Launcher + Notifications + OSD
-- [x] Phase 5 — Sidebar / Control Center
-- [x] Phase 6 — Workspace Overview
-- [x] Phase 7 — Lock Screen + Login Manager
-- [x] Phase 8 — Screenshot tool, polish, multi-monitor
 
 ## Requirements
 
