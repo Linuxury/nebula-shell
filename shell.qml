@@ -63,4 +63,55 @@ ShellRoot {
             }
         }
     }
+
+    // Notifications - one instance per screen (top right)
+    Variants {
+        model: Quickshell.screens
+
+        PanelWindow {
+            id: notifPanel
+            property var modelData
+            screen: modelData
+
+            anchors { top: true; right: true }
+            margins { top: 48; right: 12 }
+            implicitWidth: 350
+            implicitHeight: 400
+
+            color: "transparent"
+
+            Notifications {
+                anchors.fill: parent
+                screen: notifPanel.screen
+            }
+        }
+    }
+
+    // OSD - one instance per screen (right side)
+    Variants {
+        model: Quickshell.screens
+
+        PanelWindow {
+            id: osdPanel
+            property var modelData
+            screen: modelData
+
+            anchors { right: true; top: true; bottom: true }
+            margins { right: 12; top: 200; bottom: 200 }
+            implicitWidth: 250
+            implicitHeight: 60
+
+            color: "transparent"
+
+            OSD {
+                anchors.fill: parent
+                screen: osdPanel.screen
+            }
+        }
+    }
+
+    // Launcher - floating window (global, single instance)
+    Launcher {
+        id: launcherWindow
+    }
 }
