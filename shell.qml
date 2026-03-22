@@ -23,7 +23,7 @@ ShellRoot {
             screen: modelData
 
             anchors { top: true; left: true; right: true }
-            exclusiveZone: 36
+            exclusiveZone: 30
 
             WlrLayershell.namespace: "nebula:bar"
             WlrLayershell.layer: WlrLayer.Top

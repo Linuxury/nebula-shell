@@ -35,7 +35,7 @@ Item {
         command: ["bash", Quickshell.shellPath("scripts/powermenu.sh")]
     }
 
-    implicitHeight: 36
+    implicitHeight: 30
 
     // === Background ===
     Rectangle {

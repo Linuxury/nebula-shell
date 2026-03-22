@@ -8,9 +8,9 @@ import Quickshell
 Singleton {
     id: iconsModule
 
-    // Material Symbols Outlined font (Two Tone not available via CDN)
+    // Material Symbols Outlined font (local)
     readonly property FontLoader symbols: FontLoader {
-        source: "https://fonts.gstatic.com/s/materialsymbolsoutlined/v175/kJEhBvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oFsI.woff2"
+        source: Quickshell.shellPath("assets/fonts/MaterialSymbolsOutlined.woff2")
     }
 
     // Font family name (must match the font file)
