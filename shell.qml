@@ -136,4 +136,27 @@ ShellRoot {
             }
         }
     }
+
+    // Workspace Overview - centered overlay
+    Variants {
+        model: Quickshell.screens
+
+        PanelWindow {
+            id: overviewPanel
+            property var modelData
+            screen: modelData
+
+            anchors { top: true; left: true; right: true; bottom: true }
+            margins { top: 100; left: 100; right: 100; bottom: 100 }
+            implicitWidth: 700
+            implicitHeight: 400
+
+            color: "transparent"
+
+            WorkspaceOverview {
+                anchors.fill: parent
+                screen: overviewPanel.screen
+            }
+        }
+    }
 }

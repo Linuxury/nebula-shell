@@ -19,4 +19,7 @@ Singleton {
 
     // Dock (bottom bar) — always visible by default
     property bool dockVisible: true
+
+    // Workspace overview
+    property bool overviewOpen: false
 }
